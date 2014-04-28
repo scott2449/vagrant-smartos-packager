@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #config.vm.synced_folder ".", "/vagrant", type: "nfs"
   #config.vm.synced_folder ".", "/zones/vagrant", type: "rsync"
 
-  # Requires vagrant plugin at https://github.com/sax/vagrant-smartos-zones
+  # Requires vagrant plugin at https://github.com/scott2449/vagrant-smartos-zones
   #config.global_zone.platform_image = '20140321T062644Z'
 
   config.zone.name = 'base64'

@@ -1,0 +1,16 @@
+#!/bin/bash
+. support/latest_platform_image.sh
+
+DISKSIZE="32"
+MEMSIZE="1024"
+SSHPORT="2222"
+
+create_smartos_VM $DISKSIZE $MEMSIZE $SSHPORT
+
+vmname=$(smartos_vmname)
+
+echo
+echo "Starting Virtual Machine"
+echo "  Hint: use defaults"
+echo "  Hint: set root password to 'vagrant'"
+VirtualBox --startvm "${vmname}" &
