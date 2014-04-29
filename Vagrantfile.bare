@@ -9,10 +9,15 @@ Vagrant.configure("2") do |config|
     exit
   end
 
+  config.vm.network :forwarded_port, guest: 22, host: 2222, id: "ssh", disabled: true
+
   config.vm.provider "virtualbox" do |v|
     v.memory = 3072
+    v.customize ["modifyvm", :id, "--nic1", "bridged"]
+    v.customize ["modifyvm", :id, "--bridgeadapter1", "en0"]
+    v.customize ["modifyvm", :id, "--nicpromisc1", "allow-all"]
   end
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.global_zone.platform_image = '20140404T001635Z'
+  config.global_zone.platform_image = '20140418T031241Z'
 end
